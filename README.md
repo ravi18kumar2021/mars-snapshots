@@ -15,7 +15,7 @@ This interactive Streamlit app lets you filter photos by **Sol (Martian day)** a
   - High-res previews
   - Metadata (date, rover, camera info)
   - Fullscreen view button
-- Used NASA's [Mars Rover Photos API](https://api.nasa.gov)
+- Uses the Nebulum Mars Rover API (a working community mirror of NASA’s archived API)
 
 ---
 

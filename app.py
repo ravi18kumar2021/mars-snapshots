@@ -10,13 +10,19 @@ API_KEY = "DEMO_KEY"
 with st.container():
     col1, col2 = st.columns([1, 1])
     with col1:
-        sol = st.slider("🔢 Select a Sol (Martian Day)", min_value=100, max_value=4300, value=2350, step=1)
+        sol = st.slider("🔢 Select a Sol (Martian Day)", min_value=100, max_value=4300, value=2012, step=1)
 
 @st.cache_data(show_spinner=True)
 def fetch_photos(sol):
-    url = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos"
-    params = {"sol": sol, "api_key": API_KEY}
+    url = "https://rovers.nebulum.one/api/v1/rovers/Curiosity/photos"
+    params = {"sol": sol}
     response = requests.get(url, params=params)
+    if response.status_code != 200:
+        st.error(f"API Error {response.status_code}")
+        return []
+    elif "application/json" not in response.headers.get("Content-Type", ""):
+        st.error("Received non-JSON response from API")
+        return []
     data = response.json()
     return data.get("photos", [])
 
