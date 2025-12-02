@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-st.set_page_config(page_title="Mars Snapshot", page_icon="🔴", layout="wide")
+st.set_page_config(page_title="Mars Snapshot", page_icon="favicon.png", layout="wide")
 st.title("🚀 Mars Rover Image Viewer")
 st.markdown("Explore real images taken by **Curiosity rover**, filtered by Sol (Martian day) and camera.")
 
